@@ -5,13 +5,21 @@ directories:
 files:
   - dist/**/*
   - electron/**/*
-  - node_modules/**/*
+  - "!node_modules/**/{test,tests,__tests__,*.md,*.ts,*.map}"
+  - "!**/*.{map,ts}"
+asar: true
+compression: maximum
 win:
   target:
     - nsis
   icon: electron/icon.ico
+  signAndEditExecutable: false
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
   installerIcon: electron/icon.ico
   uninstallerIcon: electron/icon.ico
+  language: 2052
+electronLanguages:
+  - zh-CN
+  - en-US
