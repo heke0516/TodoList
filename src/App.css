@@ -48,6 +48,15 @@
   color: #fff;
 }
 
+.titlebar-btn.pin {
+  font-size: 12px;
+  opacity: 0.4;
+}
+
+.titlebar-btn.pin.active {
+  opacity: 1;
+}
+
 .header {
   display: flex;
   justify-content: space-between;

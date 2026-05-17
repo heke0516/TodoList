@@ -1,22 +1,33 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 import DateQuery from './components/DateQuery';
+import { getToday } from './utils/date';
 import './App.css';
 
-function getToday() {
-  const d = new Date();
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${y}-${m}-${day}`;
-}
-
 function TitleBar() {
+  const [pinned, setPinned] = useState(false);
+
+  useEffect(() => {
+    window.electronAPI?.isPinned().then(setPinned);
+  }, []);
+
+  const handleTogglePin = async () => {
+    const result = await window.electronAPI?.togglePin();
+    setPinned(result);
+  };
+
   return (
     <div className="titlebar">
       <span className="titlebar-title">ToDoList</span>
       <div className="titlebar-controls">
+        <button
+          className={`titlebar-btn pin${pinned ? ' active' : ''}`}
+          onClick={handleTogglePin}
+          title={pinned ? '取消置顶' : '窗口置顶'}
+        >
+          📌
+        </button>
         <button className="titlebar-btn" onClick={() => window.electronAPI?.minimize()}>─</button>
         <button className="titlebar-btn" onClick={() => window.electronAPI?.maximize()}>□</button>
         <button className="titlebar-btn close" onClick={() => window.electronAPI?.close()}>✕</button>
@@ -30,24 +41,30 @@ export default function App() {
   const [todos, setTodos] = useState([]);
   const today = getToday();
 
+  useEffect(() => {
+    loadTodos(today);
+  }, []);
+
   const loadTodos = async (date) => {
     const result = await window.api.getTodos(date);
     setTodos(result);
   };
 
   const handleAdd = async (content) => {
-    await window.api.addTodo(content, today);
-    await loadTodos(today);
+    const newTodo = await window.api.addTodo(content, today);
+    setTodos((prev) => [...prev, newTodo]);
   };
 
   const handleToggle = async (id, currentIsDone) => {
-    await window.api.toggleTodo(id, currentIsDone ? 0 : 1);
-    await loadTodos(view === 'today' ? today : null);
+    setTodos((prev) =>
+      prev.map((t) => (t.id === id ? { ...t, is_done: currentIsDone ? 0 : 1 } : t))
+    );
+    window.api.toggleTodo(id, currentIsDone ? 0 : 1);
   };
 
   const handleDelete = async (id) => {
-    await window.api.deleteTodo(id);
-    await loadTodos(view === 'today' ? today : null);
+    setTodos((prev) => prev.filter((t) => t.id !== id));
+    window.api.deleteTodo(id);
   };
 
   if (view === 'query') {
@@ -76,7 +93,6 @@ export default function App() {
         todos={todos}
         onToggle={handleToggle}
         onDelete={handleDelete}
-        loadTodos={() => loadTodos(today)}
       />
     </div>
   );

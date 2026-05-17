@@ -1,0 +1,202 @@
+/* TodoInput */
+.todo-input {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.todo-input-field {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background-color: var(--bg-card);
+  font-size: 14px;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.todo-input-btn {
+  background-color: var(--accent);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* TodoList */
+.todo-list {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.todo-list-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* TodoItem */
+.todo-item {
+  padding: 10px 12px;
+  border-bottom: 1px solid #F0E6C0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.todo-item--done {
+  background-color: var(--bg-done);
+}
+
+.todo-item-text {
+  font-size: 14px;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.todo-item-text--done {
+  text-decoration: line-through;
+  color: var(--text-done);
+}
+
+.todo-item-delete {
+  color: var(--text-delete);
+  font-size: 12px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 4px;
+  margin-left: 8px;
+}
+
+/* ConfirmDialog */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.dialog {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  min-width: 260px;
+  text-align: center;
+}
+
+.dialog-message {
+  font-size: 14px;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.dialog-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.dialog-btn-cancel {
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-hover);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.dialog-btn-confirm {
+  padding: 8px 20px;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--accent);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+/* DateQuery */
+.date-query-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.date-query-title {
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.date-query-back {
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.date-query-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.date-query-label {
+  font-size: 14px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.date-query-input {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background-color: var(--bg-card);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.date-query-btn {
+  background-color: var(--accent);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.date-query-list {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.date-query-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.date-query-summary {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
