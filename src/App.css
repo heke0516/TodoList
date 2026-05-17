@@ -1,0 +1,28 @@
+.app {
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.header h1 {
+  font-size: 18px;
+  color: var(--text-primary);
+}
+
+.header a {
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.header a:hover {
+  opacity: 0.8;
+}
