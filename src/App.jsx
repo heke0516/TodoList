@@ -12,6 +12,19 @@ function getToday() {
   return `${y}-${m}-${day}`;
 }
 
+function TitleBar() {
+  return (
+    <div className="titlebar">
+      <span className="titlebar-title">ToDoList</span>
+      <div className="titlebar-controls">
+        <button className="titlebar-btn" onClick={() => window.electronAPI?.minimize()}>─</button>
+        <button className="titlebar-btn" onClick={() => window.electronAPI?.maximize()}>□</button>
+        <button className="titlebar-btn close" onClick={() => window.electronAPI?.close()}>✕</button>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const [view, setView] = useState('today'); // 'today' | 'query'
   const [todos, setTodos] = useState([]);
@@ -40,6 +53,7 @@ export default function App() {
   if (view === 'query') {
     return (
       <div className="app">
+        <TitleBar />
         <DateQuery
           onBack={() => {
             setView('today');
@@ -52,6 +66,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <TitleBar />
       <div className="header">
         <h1>📋 我的待办</h1>
         <a onClick={() => setView('query')}>📅 查询历史</a>

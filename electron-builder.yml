@@ -1,5 +1,5 @@
 appId: com.todolist.app
-productName: 我的待办
+productName: ToDoList
 directories:
   output: release
 files:
@@ -9,9 +9,9 @@ files:
 win:
   target:
     - nsis
-  icon: null
+  icon: electron/icon.png
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
-  installerIcon: null
-  uninstallerIcon: null
+  installerIcon: electron/icon.png
+  uninstallerIcon: electron/icon.png

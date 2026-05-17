@@ -1,7 +1,51 @@
 .app {
   max-width: 440px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 20px 20px;
+}
+
+.titlebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 36px;
+  -webkit-app-region: drag;
+  user-select: none;
+  padding: 0 4px;
+}
+
+.titlebar-title {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.titlebar-controls {
+  display: flex;
+  gap: 4px;
+  -webkit-app-region: no-drag;
+}
+
+.titlebar-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titlebar-btn:hover {
+  background: var(--bg-hover);
+}
+
+.titlebar-btn.close:hover {
+  background: #e81123;
+  color: #fff;
 }
 
 .header {

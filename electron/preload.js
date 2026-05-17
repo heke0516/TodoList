@@ -6,3 +6,9 @@ contextBridge.exposeInMainWorld('api', {
   toggleTodo: (id, isDone) => ipcRenderer.invoke('toggle-todo', id, isDone),
   deleteTodo: (id) => ipcRenderer.invoke('delete-todo', id),
 });
+
+contextBridge.exposeInMainWorld('electronAPI', {
+  minimize: () => ipcRenderer.invoke('window-minimize'),
+  maximize: () => ipcRenderer.invoke('window-maximize'),
+  close: () => ipcRenderer.invoke('window-close'),
+});

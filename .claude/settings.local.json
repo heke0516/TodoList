@@ -13,7 +13,22 @@
       "Bash(git commit *)",
       "Bash(npm install *)",
       "Bash(timeout 10 npx vite)",
-      "Bash(npm uninstall *)"
+      "Bash(npm uninstall *)",
+      "Bash(npx electron *)",
+      "Bash(kill %1)",
+      "Bash(git -C d:/heK/ToDoList status --short)",
+      "Bash(git -C d:/heK/ToDoList log --oneline -5)",
+      "Bash(git -C d:/heK/ToDoList add electron-builder.yml)",
+      "Bash(git -C d:/heK/ToDoList commit -m ' *)",
+      "Bash(git -C d:/heK/ToDoList log --oneline -3)",
+      "Bash(npm run *)",
+      "Bash(ELECTRON_MIRROR=\"https://npmmirror.com/mirrors/electron/\" npm install electron@33.2.0)",
+      "Bash(git reset *)",
+      "Bash(git checkout *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(node scripts/generate-icon.js)"
     ]
   }
 }
