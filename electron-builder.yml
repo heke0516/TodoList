@@ -9,9 +9,9 @@ files:
 win:
   target:
     - nsis
-  icon: electron/icon.png
+  icon: electron/icon.ico
 nsis:
   oneClick: false
   allowToChangeInstallationDirectory: true
-  installerIcon: electron/icon.png
-  uninstallerIcon: electron/icon.png
+  installerIcon: electron/icon.ico
+  uninstallerIcon: electron/icon.ico
